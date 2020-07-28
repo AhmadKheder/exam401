@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FavJokes</title>
+</head>
+
+<body>
+    <% DBjokes.forEach(joke => {%>
+        <section>
+            <h3> #
+                <%= joke.count%>
+            </h3>
+            <p>
+                <%= joke.type%>
+            </p>
+            <p>
+                <%= joke.setup%>
+            </p>
+            <p>
+                <%= joke.punchline%>
+            </p>
+            <button id="hidebtn">View Details</button>
+            <form action="/update/<%=joke.id%>?_method=put" method="post" class="toggle">
+                <input type="text" name="count" value=" <%= joke.count%>">
+                <input type="text" name="type" value=" <%= joke.type%>">
+                <input type="text" name="setup" value=" <%= joke.setup%>">
+                <input type="text" name="punchline" value=" <%= joke.punchline%>">
+                <button>Update</button>
+
+            </form>
+            <form action="/delete/<%=joke.id%>?_method=delete" method="post">.
+
+                <button>DELETE</button>
+            </form>
+        </section>
+        <% });%>
+
+
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="app.js"></script>
+</body>
+
+</html>

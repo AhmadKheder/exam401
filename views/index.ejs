@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <a href="/homeJokes">Home Jokes</a>
+    <a href="/favjokes">favJokes</a>
+    <a href="/rand">Random Joke</a>
+
+    <main>
+        <% DBcontent.forEach(joke => {%>
+            <section>
+                <h3> #
+                    <%= joke.count%>
+                </h3>
+                <p>
+                    <%= joke.type%>
+                </p>
+                <p>
+                    <%= joke.setup%>
+                </p>
+                <p>
+                    <%= joke.punchline%>
+                </p>
+                <form action="/addToJList" method="post">
+                    <input type="text" name="count" value=" <%= joke.count%>">
+                    <input type="text" name="type" value=" <%= joke.type%>">
+                    <input type="text" name="setup" value=" <%= joke.setup%>">
+                    <input type="text" name="punchline" value=" <%= joke.punchline%>">
+                    <button>ADD To Jokes List</button>
+                </form>
+            </section>
+            <% });%>
+    </main>
+</body>
+
+</html>

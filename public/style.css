@@ -1,0 +1,21 @@
+body {
+    background-color: tomato;
+}
+
+.toggle {
+    display: none;
+}
+
+section {
+    margin-top: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section>h3,
+p,
+form {
+    margin-left: 20%;
+}
